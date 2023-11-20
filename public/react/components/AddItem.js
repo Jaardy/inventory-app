@@ -5,7 +5,7 @@ export const AddItem = ({ fetchItems, setIsAddPage }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [price, setPrice] = useState(null);
+  const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
 
   async function handleSubmit(e) {
@@ -20,13 +20,13 @@ export const AddItem = ({ fetchItems, setIsAddPage }) => {
         image: image,
       }),
       headers: {
-        "content-type": "applicaiton/json",
+        "content-type": "application/json",
       },
     });
     setName("");
     setDescription("");
     setCategory("");
-    setPrice(null);
+    setPrice(0);
     setImage("");
     setIsAddPage(false);
     fetchItems();
@@ -38,43 +38,58 @@ export const AddItem = ({ fetchItems, setIsAddPage }) => {
         <h2>Add a new item below:</h2>
         <input
           className="input"
+          name="name"
           type="text"
           placeholder="Item name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
           required
         ></input>
         <input
           className="input"
+          name="description"
           type="text"
           placeholder="Item description"
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={(e) => {
+            setDescription(e.target.value);
+          }}
           required
         ></input>
         <input
           className="input"
           type="text"
+          name="category"
           placeholder="Item category"
           value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          onChange={(e) => {
+            console.log(category);
+            setCategory(e.target.value);
+          }}
           required
         ></input>
         <input
           className="input"
           type="number"
+          name="price"
           placeholder="Item price (number)"
           value={price}
-          onChange={(e) => setPrice(e.target.value)}
+          onChange={(e) => {
+            setPrice(e.target.value);
+          }}
           required
         ></input>
         <input
           className="input"
           type="text"
+          name="image"
           placeholder="Image URL"
           value={image}
-          onChange={(e) => setImage(e.target.value)}
-          required
+          onChange={(e) => {
+            setImage(e.target.value);
+          }}
         ></input>
         <button className="button" type="submit">
           Add Item

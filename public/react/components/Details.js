@@ -20,7 +20,7 @@ export default function Details({
   return (
     <>
       <h1>{singlePageData.name}</h1>
-      <img src={singlePageData.image}></img>
+      <img className="image" src={singlePageData.image}></img>
       <p>{singlePageData.description}</p>
       <button>Update item</button>
       <button
