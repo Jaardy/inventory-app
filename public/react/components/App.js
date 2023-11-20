@@ -49,7 +49,10 @@ export const App = () => {
           setIsAddPage={setIsAddPage}
         />
       ) : (
-        <Details singlePageData={singlePageData} />
+        <Details
+        
+          singlePageData={singlePageData} setIsSinglePage={setIsSinglePage} fetchItems={fetchItems}
+        />
       )}
     </main>
   );

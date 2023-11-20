@@ -1,7 +1,11 @@
 import React from "react";
 import apiURL from "../api";
 
-export default function Details({ singlePageData }) {
+export default function Details({
+  singlePageData,
+  setIsSinglePage,
+  fetchItems,
+}) {
   console.log(singlePageData);
 
   async function deleteItem(item) {
@@ -9,6 +13,8 @@ export default function Details({ singlePageData }) {
       method: "DELETE",
     });
     const data = await response.json();
+    setIsSinglePage(false);
+    fetchItems();
   }
 
   return (
