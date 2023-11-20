@@ -3,7 +3,6 @@ import { ItemsList } from "./ItemsList";
 import { AddItem } from "./AddItem";
 import Details from "./Details";
 
-
 // import and prepend the api url to any fetch calls
 import apiURL from "../api";
 
@@ -43,7 +42,6 @@ export const App = () => {
 
       <ItemsList items={items} />
       <AddItem fetchItems={fetchItems} setIsAddPage={setIsAddPage} />
-
 
       {!isSinglePage ? (
         <ItemsList getPage={getPage} items={items} />
