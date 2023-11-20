@@ -1,10 +1,14 @@
 import React from "react";
 
-export const Item = (props) => {
+export const Item = ({ item }) => {
   return (
     <>
-      <h3>{props.item.name}</h3>
-      <img src={props.item.image} alt={props.item.name} />
+      <h3>{item.name}</h3>
+      <p>{item.description}</p>
+      <p>Price: {item.price}</p>
+      <p></p>
+      <p>{item.category}</p>
+      <img className="image" src={item.image} alt={item.name} />
     </>
   );
 };
