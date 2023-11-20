@@ -53,6 +53,8 @@ export const App = () => {
           singlePageData={singlePageData}
           setIsSinglePage={setIsSinglePage}
           fetchItems={fetchItems}
+          setIsUpdatePage={setIsUpdatePage}
+          isUpdatePage={isUpdatePage}
         />
       )}
     </main>

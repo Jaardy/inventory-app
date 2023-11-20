@@ -1,6 +1,8 @@
 import React from "react";
+import { useState } from "react";
+import apiURL from "../api";
 
-export const UpdateForm = ({ fetchItems, singlePageData, setIsUpdatePage }) => {
+export const UpdateForm = ({ setIsUpdatePage, singlePageData, fetchItems }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -26,13 +28,18 @@ export const UpdateForm = ({ fetchItems, singlePageData, setIsUpdatePage }) => {
     setCategory("");
     setPrice(0);
     setImage("");
-    setIsAddPage(false);
+    setIsUpdatePage(false);
     fetchItems();
   }
 
   return (
     <>
-      <form onSubmit={handleUpdateItem(singlePageData)}>
+      <form
+        className="form"
+        onSubmit={() => {
+          handleUpdateItem(singlePageData);
+        }}
+      >
         <input
           className="input"
           name="name"
