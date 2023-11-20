@@ -8,3 +8,17 @@
   width: 100px;
   height: 100px;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.input {
+  width: 20vw;
+}
+
+.button {
+  width: 10vw;
+}
