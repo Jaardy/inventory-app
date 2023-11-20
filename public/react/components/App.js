@@ -10,8 +10,8 @@ export const App = () => {
   const [items, setItems] = useState([]);
   const [isSinglePage, setIsSinglePage] = useState(false);
   const [singlePageData, setSinglePageData] = useState({});
-
   const [isAddPage, setIsAddPage] = useState(false);
+  const [isUpdatePage, setIsUpdatePage] = useState(false);
 
   async function fetchItems() {
     try {
@@ -50,8 +50,9 @@ export const App = () => {
         />
       ) : (
         <Details
-        
-          singlePageData={singlePageData} setIsSinglePage={setIsSinglePage} fetchItems={fetchItems}
+          singlePageData={singlePageData}
+          setIsSinglePage={setIsSinglePage}
+          fetchItems={fetchItems}
         />
       )}
     </main>
