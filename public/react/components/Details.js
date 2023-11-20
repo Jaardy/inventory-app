@@ -5,7 +5,7 @@ export default function Details({ singlePageData }) {
   console.log(singlePageData);
 
   async function deleteItem(item) {
-    const response = await fetch(`${apiURL}/${item.id}`, {
+    const response = await fetch(`${apiURL}/items/${item.id}`, {
       method: "DELETE",
     });
     const data = await response.json();
