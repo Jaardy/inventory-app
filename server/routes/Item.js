@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { Item } = require("../models");
+const { check, validationResult } = require("express-validator");
 
 router.get("/", async (req, res, next) => {
   try {
@@ -21,23 +22,39 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
-  try {
-    const { name, description, category, price, image } = req.body;
+router.post(
+  "/",
+  [
+    check("name").not().isEmpty().trim(),
+    check("description").not().isEmpty().trim(),
+    check("description").isLength({ min: 5, max: 100 }),
+    check("category").not().isEmpty().trim(),
+    check("price").not().isEmpty().trim(),
+    check("image").not().isEmpty().trim(),
+  ],
+  async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.json({ error: errors.array() });
+    } else {
+      try {
+        const { name, description, category, price, image } = req.body;
 
-    const newItem = await Item.create({
-      name,
-      description,
-      category,
-      price,
-      image,
-    });
+        const newItem = await Item.create({
+          name,
+          description,
+          category,
+          price,
+          image,
+        });
 
-    res.json(newItem);
-  } catch (error) {
-    next(error);
+        res.json(newItem);
+      } catch (error) {
+        next(error);
+      }
+    }
   }
-});
+);
 
 router.put("/:id", async (req, res, next) => {
   try {
@@ -73,7 +90,6 @@ router.delete("/:id", async (req, res, next) => {
     next(error);
   }
 });
-
 
 router.use((err, req, res, next) => {
   console.error(err.stack);

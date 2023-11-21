@@ -1,7 +1,7 @@
 import React from "react";
 import { Item } from "./Item";
 
-export const ItemsList = ({ items, getPage, setIsAddPage }) => {
+export const ItemsList = ({ getPage, items, setIsAddPage }) => {
   return (
     <>
       {items.map((item, idx) => {
