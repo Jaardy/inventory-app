@@ -11,16 +11,36 @@ beforeAll(async () => {
 });
 
 describe("GET /items/ unit tests", () => {
-  it("./ endpoint works", async () => {
-    const response = await request(app).get("/");
+  it("/ endpoint works", async () => {
+    const response = await request(app).get("/api/items/");
     expect(response.statusCode).toBe(200);
   });
 });
 
-describe("GET /items/:id unit tests", () => {});
+describe("GET /items/:id unit tests", () => {
+  it("/:id enpoint works", async () => {
+    const response = await request(app).get("/api/items/1");
+    expect(response.statusCode).toBe(200);
+  });
+});
 
-describe("POST /items/ unit tests", () => {});
+describe("POST /items/ unit tests", () => {
+  it("/ Post endpoint works", async () => {
+    const response = await request(app).post("/api/items/");
+    expect(response.statusCode).toBe(200);
+  });
+});
 
-describe("PUT /items/:id unit tests", () => {});
+describe("PUT /items/:id unit tests", () => {
+  it("/ endpoint for Put is working", async () => {
+    const response = await request(app).put("/api/items/1");
+    expect(response.statusCode).toBe(200);
+  });
+});
 
-describe("DELETE /items/:id unit tests", () => {});
+describe("DELETE /items/:id unit tests", () => {
+  it("/ endpoint for delete is working", async () => {
+    const response = await request(app).delete("/api/items/1");
+    expect(response.statusCode).toBe(200);
+  });
+});
