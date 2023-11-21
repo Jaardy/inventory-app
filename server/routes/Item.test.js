@@ -11,7 +11,7 @@ beforeAll(async () => {
 
 afterAll(async () => {
   await seed();
-  
+});
 
 const { items } = require("../seedData");
 const request = require("supertest");
@@ -27,7 +27,6 @@ describe("GET /items/ unit tests", () => {
     const response = await request(app).get("/api/items/");
     expect(response.statusCode).toBe(200);
   });
-
 });
 
 describe("GET /items/:id unit tests", () => {
