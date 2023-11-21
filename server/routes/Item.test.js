@@ -1,15 +1,15 @@
 const { describe, it, expect, beforeAll, afterAll } = require("@jest/globals");
 const { Item } = require("../models");
 const { sequelize } = require("../db");
-import { seed } from "../seed";
+const { seed } = require("../seed");
 
 //clear db and reseed before all tests
 beforeAll(async () => {
-  seed();
+  await seed();
 });
 
 afterAll(async () => {
-  seed();
+  await seed();
 });
 
 describe("GET /items/ unit tests", () => {});
