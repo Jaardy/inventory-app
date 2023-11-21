@@ -11,6 +11,7 @@ beforeAll(async () => {
 
 afterAll(async () => {
   await seed();
+  
 
 const { items } = require("../seedData");
 const request = require("supertest");
