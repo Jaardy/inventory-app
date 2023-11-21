@@ -1,7 +1,8 @@
-const { sauces, items } = require("./seedData.js");
+const { sauces, items, users } = require("./seedData.js");
 
 const { sequelize } = require("./db");
 const { Item } = require("./models");
+const { User } = require("./models");
 
 const seed = async () => {
   try {
@@ -10,6 +11,7 @@ const seed = async () => {
 
     // insert data
     await Promise.all(items.map((item) => Item.create(item)));
+    await Promise.all(users.map((user) => User.create(user)));
 
     console.log("db populated!");
   } catch (error) {
@@ -19,4 +21,4 @@ const seed = async () => {
 
 seed();
 
-export default seed;
+module.exports = { seed };

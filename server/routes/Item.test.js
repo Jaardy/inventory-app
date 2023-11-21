@@ -1,7 +1,7 @@
 const { describe, it, expect, beforeAll, afterAll } = require("@jest/globals");
 const { Item } = require("../models");
 const { sequelize } = require("../db");
-import seed from "../seed";
+import { seed } from "../seed";
 
 //clear db and reseed before all tests
 beforeAll(async () => {
