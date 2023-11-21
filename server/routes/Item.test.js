@@ -1,18 +1,21 @@
 const { describe, it, expect, beforeAll, afterAll } = require("@jest/globals");
 const { Item } = require("../models");
 const { sequelize } = require("../db");
-import seed from "../seed";
-
+const { items } = require("../seedData");
+const request = require("supertest");
+const app = require("../app");
 //clear db and reseed before all tests
 beforeAll(async () => {
-  seed();
+  await sequelize.sync({ force: true });
+  await Item.bulkCreate(items);
 });
 
-afterAll(async () => {
-  seed();
+describe("GET /items/ unit tests", () => {
+  it("./ endpoint works", async () => {
+    const response = await request(app).get("/");
+    expect(response.statusCode).toBe(200);
+  });
 });
-
-describe("GET /items/ unit tests", () => {});
 
 describe("GET /items/:id unit tests", () => {});
 

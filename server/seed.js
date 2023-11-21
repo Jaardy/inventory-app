@@ -19,4 +19,4 @@ const seed = async () => {
 
 seed();
 
-export default seed;
+module.exports = seed;
