@@ -21,4 +21,7 @@ const seed = async () => {
 
 seed();
 
+
 module.exports = { seed };
+module.exports = seed;
+
