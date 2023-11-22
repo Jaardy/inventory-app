@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import apiURL from "../api";
 
-export const UpdateForm = ({ setIsUpdatePage, singlePageData, fetchItems }) => {
+export default function UpdateForm({ item }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -34,10 +34,11 @@ export const UpdateForm = ({ setIsUpdatePage, singlePageData, fetchItems }) => {
 
   return (
     <>
+      <h2>Update your item</h2>
       <form
         className="form"
         onSubmit={() => {
-          handleUpdateItem(singlePageData);
+          handleUpdateItem(item);
         }}
       >
         <input
@@ -69,7 +70,6 @@ export const UpdateForm = ({ setIsUpdatePage, singlePageData, fetchItems }) => {
           placeholder="Item category"
           value={category}
           onChange={(e) => {
-            console.log(category);
             setCategory(e.target.value);
           }}
           required
@@ -101,4 +101,4 @@ export const UpdateForm = ({ setIsUpdatePage, singlePageData, fetchItems }) => {
       </form>
     </>
   );
-};
+}
