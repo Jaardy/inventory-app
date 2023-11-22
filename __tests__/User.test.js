@@ -1,14 +1,15 @@
 const express = require("express");
-const { User } = require("../models");
 const request = require("supertest");
 const { describe, it, expect, beforeAll, afterAll } = require("@jest/globals");
-const app = require("../app");
-const seed = require("../seed");
-const { sequelize } = require("../db");
+const app = require("../server/app");
+const { User } = require("../server/models");
+const { users } = require("../server/seedData");
+
+const { sequelize } = require("../server/db");
 
 beforeAll(async () => {
   await sequelize.sync({ force: true });
-  await seed();
+  await User.bulkCreate(users);
 });
 
 describe("GET /users/ endpoint", () => {
