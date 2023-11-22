@@ -6,10 +6,6 @@ const { items } = require("../seedData");
 const request = require("supertest");
 const app = require("../app");
 
-const { items } = require("../seedData");
-const request = require("supertest");
-const app = require("../app");
-
 //clear db and reseed before all tests
 beforeAll(async () => {
   await sequelize.sync({ force: true });
