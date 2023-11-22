@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
 import { ItemsList } from "../components/ItemsList";
 import { Page } from "../components/Details";
-import { AddItem } from "./AddItem";
-import Details from "./Item";
 import logo from "../../images/logo.jpeg";
 
 // import and prepend the api url to any fetch calls

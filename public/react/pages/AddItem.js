@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import apiURL from "../api";
 
-export const AddNewItem = ({ fetchItems, setIsAddPage }) => {
+export const AddNewItem = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
