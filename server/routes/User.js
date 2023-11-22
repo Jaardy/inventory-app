@@ -11,9 +11,11 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id", async (req, res, next) => {
+router.get("/:username", async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.id);
+    const user = await User.findOne({
+      where: { username: req.params.username },
+    });
     res.json(user);
   } catch (error) {
     next(error);
