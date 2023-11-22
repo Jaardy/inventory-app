@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ItemsList } from "./ItemsList";
 import { AddItem } from "./AddItem";
+import { LoginPage } from "./LoginPage";
 import Details from "./Details";
 import logo from "../../images/logo.jpeg";
 
@@ -48,7 +49,7 @@ export const App = () => {
         <h1 className="header">Inventorious Inventories</h1>
       </header>
       <h2 id="subheader">All of our things</h2>
-
+      {/* <LoginPage /> */}
       {isAddPage ? (
         <AddItem fetchItems={fetchItems} setIsAddPage={setIsAddPage} />
       ) : !isSinglePage ? (

@@ -87,3 +87,39 @@
   border-radius: 5px;
   margin-bottom: 5px;
 }
+
+.login-main {
+  display: flex;
+  justify-content: center;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.addItem-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 260px;
+}
+
+.input {
+  width: 50vw;
+  height: 5vw;
+  border-radius: 5px;
+}
+
+.button {
+  width: 30vw;
+  border-radius: 5px;
+}
