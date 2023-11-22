@@ -25,6 +25,11 @@ export const App = () => {
     }
   }
 
+  async function homeButtonHandler() {
+    await setIsSinglePage(false);
+    await setIsUpdatePage(false);
+  }
+
   async function getPage(item) {
     const response = await fetch(`${apiURL}/items/${item.id}`);
     const data = await response.json();
@@ -37,10 +42,13 @@ export const App = () => {
   }, []);
 
   return (
-    <main>
-      <img src={logo}></img>
-      <h1>Items</h1>
-      <h2>All things</h2>
+    <main className="main">
+      <header className="header-flex">
+        <img id="logo" src={logo} onClick={homeButtonHandler}></img>
+        <h1 className="header">Inventorious Inventories</h1>
+      </header>
+      <h2 id="subheader">All of our things</h2>
+
       {isAddPage ? (
         <AddItem fetchItems={fetchItems} setIsAddPage={setIsAddPage} />
       ) : !isSinglePage ? (
