@@ -24,10 +24,15 @@ export const LoginPage = (props) => {
       const currentUser = await res.json();
       //currentUser will be null if there is no user with that username
       if (currentUser) {
-        //if password is correct (need to make this private in Model)
+        //if password is correct (need to make this private in Model and use a getter)
         if (currentUser.password == password) {
           setUser(currentUser);
-          console.log(user);
+          setUsername("");
+          setPassword("");
+          setPasswordError("");
+          setUsernameError("");
+          setIsLoggedIn(true); //use this for conditional rendering
+          console.log(`${user.username} logged in`);
         } else {
           setPasswordError("Incorrect Password");
         }
@@ -50,7 +55,6 @@ export const LoginPage = (props) => {
             placeholder="Enter username"
             onChange={(e) => {
               setUsername(e.target.value);
-              console.log(username);
             }}
           ></input>
           <p className="errorLabel">{usernameError}</p>
