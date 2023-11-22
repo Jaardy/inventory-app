@@ -46,36 +46,39 @@ export const LoginPage = (props) => {
 
   return (
     <>
-      <h2>Login</h2>
-      <br />
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="inputContainer">
-          <input
-            value={username}
-            placeholder="Enter username"
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-          ></input>
-          <p className="errorLabel">{usernameError}</p>
-        </div>
+      <div className="login-main">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="inputContainer">
+            <input
+              className="input"
+              value={username}
+              placeholder="Enter username"
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+            ></input>
+            <p className="errorLabel">{usernameError}</p>
+          </div>
 
-        <div className="inputContainer">
-          <input
-            value={password}
-            placeholder="Enter password"
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-          ></input>
-          <p className="errorLabel">{passwordError}</p>
-        </div>
+          <div className="inputContainer">
+            <input
+              className="input"
+              value={password}
+              placeholder="Enter password"
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+            ></input>
+            <p className="errorLabel">{passwordError}</p>
+          </div>
 
-        <div className="inputContainer">
-          <button className="inputButton" type="submit">
-            Log In
-          </button>
-        </div>
-      </form>
+          <div className="inputContainer">
+            <button className="inputButton" type="submit">
+              Log In
+            </button>
+          </div>
+        </form>
+      </div>
     </>
   );
 };

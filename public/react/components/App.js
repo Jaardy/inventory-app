@@ -49,8 +49,8 @@ export const App = () => {
         <h1 className="header">Inventorious Inventories</h1>
       </header>
       <h2 id="subheader">All of our things</h2>
-      <LoginPage />
-      {/* {isAddPage ? (
+      {/* <LoginPage /> */}
+      {isAddPage ? (
         <AddItem fetchItems={fetchItems} setIsAddPage={setIsAddPage} />
       ) : !isSinglePage ? (
         <ItemsList
@@ -66,7 +66,7 @@ export const App = () => {
           setIsUpdatePage={setIsUpdatePage}
           isUpdatePage={isUpdatePage}
         />
-      )} */}
+      )}
     </main>
   );
 };
