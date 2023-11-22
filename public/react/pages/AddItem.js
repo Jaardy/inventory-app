@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import apiURL from "../api";
 
-export const AddItem = ({ fetchItems, setIsAddPage }) => {
+export const AddNewItem = ({ fetchItems, setIsAddPage }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -28,8 +28,6 @@ export const AddItem = ({ fetchItems, setIsAddPage }) => {
     setCategory("");
     setPrice(0);
     setImage("");
-    setIsAddPage(false);
-    fetchItems();
   }
 
   return (
@@ -65,6 +63,7 @@ export const AddItem = ({ fetchItems, setIsAddPage }) => {
           placeholder="Item category"
           value={category}
           onChange={(e) => {
+            console.log(category);
             setCategory(e.target.value);
           }}
           required
