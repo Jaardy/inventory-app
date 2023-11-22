@@ -7,7 +7,10 @@ const seed = require("../seed");
 const { sequelize } = require("../db");
 
 beforeAll(async () => {
-  await sequelize.sync({ force: true });
+  await seed();
+});
+
+afterAll(async () => {
   await seed();
 });
 
@@ -15,6 +18,11 @@ describe("GET /users/ endpoint", () => {
   it("reaches endpoint successfully", async () => {
     const res = await request(app).get("/api/users/");
     expect(res.statusCode).toBe(200);
+  });
+  it("gets all users successfully", async () => {
+    const res = await request(app).get("/api/users/");
+    const data = res.json();
+    expect(data.length).toBe(3);
   });
 });
 
