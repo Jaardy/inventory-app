@@ -26,7 +26,7 @@ export const LoginPage = (props) => {
       if (currentUser) {
         //if password is correct (need to make this private in Model and use a getter)
         if (currentUser.password == password) {
-          setUser(currentUser);
+          setUser(currentUser); //use this user when building cart functionality
           setUsername("");
           setPassword("");
           setPasswordError("");
