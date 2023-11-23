@@ -46,11 +46,11 @@ router.put("/:id", async (req, res, next) => {
   }
 });
 
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:username", async (req, res, next) => {
   try {
     const deletedUser = await User.destroy({
       where: {
-        id: req.params.id,
+        username: req.params.username,
       },
     });
     res.json({ message: "Item has been deleted successfully" });
