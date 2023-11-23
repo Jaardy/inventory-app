@@ -7,7 +7,6 @@ import UpdateForm from "../components/UpdateForm";
 
 export default function Item() {
   const { id } = useParams();
-  console.log(id);
   const [item, setItem] = useState({});
   const [update, setUpdate] = useState(false);
 
@@ -15,7 +14,6 @@ export default function Item() {
     const response = await fetch(`${apiURL}/items/${id}`);
     const data = await response.json();
     setItem(data);
-    console.log(data);
   }
 
   useEffect(() => {

@@ -8,7 +8,6 @@ const request = require("supertest");
 const app = require("../server/app");
 
 const id = items.filter((item) => typeof item === "object").length;
-console.log(id);
 
 function generateRandomId() {
   const idTest = Math.floor(Math.random() * (id + 1));
@@ -58,7 +57,6 @@ describe("GET /items/:id unit tests", () => {
   it("/:id enpoint fetches correctly", async () => {
     const validId = generateRandomId();
     const response = await request(app).get(`/api/items/${validId}`);
-    console.log(response);
     expect(response.body).toHaveProperty("name");
     expect(response.body).toHaveProperty("price");
     expect(response.body).toHaveProperty("description");

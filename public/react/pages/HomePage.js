@@ -20,7 +20,7 @@ export const Homepage = () => {
 
       setItems(itemsData);
     } catch (err) {
-      console.log("Oh no an error! ", err);
+      // console.log("Oh no an error! ", err);
     }
   }
 

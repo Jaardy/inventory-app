@@ -63,7 +63,6 @@ export const AddNewItem = () => {
           placeholder="Item category"
           value={category}
           onChange={(e) => {
-            console.log(category);
             setCategory(e.target.value);
           }}
           required
