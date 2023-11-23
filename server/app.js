@@ -20,8 +20,10 @@ app.use("/", express.static(path.join(__dirname, "../dist")));
 // api router
 app.use("/api", require("./routes"));
 
+
 // 404 handler
 app.use((req, res) => {
+  console.log(req.path)
   res
     .status(404)
     .send({
@@ -29,6 +31,7 @@ app.use((req, res) => {
       message: "No route found for the requested URL",
     });
 });
+
 
 // error handling middleware
 app.use((error, req, res, next) => {
