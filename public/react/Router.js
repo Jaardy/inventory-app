@@ -6,7 +6,7 @@ import Item from "./pages/Item";
 import MainPage from "./pages/MainPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-export default router = createBrowserRouter([
+export default createBrowserRouter([
   {
     path: "/",
     element: <MainPage />,
