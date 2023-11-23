@@ -1,29 +1,17 @@
 const express = require("express");
 const request = require("supertest");
-const {
-  describe,
-  it,
-  expect,
-  beforeEach,
-  afterEach,
-} = require("@jest/globals");
-const app = require("../app");
-const seed = require("../seed");
-const seedData = require("../seedData");
-const { sequelize } = require("../db");
-app.use(express.json());
-app.use(express.urlencoded());
+const { describe, it, expect, beforeAll, afterAll } = require("@jest/globals");
+const app = require("../server/app");
+const { User } = require("../server/models");
+const { users } = require("../server/seedData");
+
+const { sequelize } = require("../server/db");
 
 const seedUsers = seedData.users;
 
-beforeEach(async () => {
+beforeAll(async () => {
   await sequelize.sync({ force: true });
-  await await seed();
-});
-
-afterEach(async () => {
-  await sequelize.sync({ force: true });
-  await seed();
+  await User.bulkCreate(users);
 });
 
 describe("GET /users/ endpoint", () => {

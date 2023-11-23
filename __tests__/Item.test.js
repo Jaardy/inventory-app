@@ -1,10 +1,11 @@
 const { describe, it, expect, beforeAll, afterAll } = require("@jest/globals");
-const { Item } = require("../models");
-const { sequelize } = require("../db");
+const { Item } = require("../server/models");
 
-const { items } = require("../seedData");
+const { sequelize } = require("../server/db");
+
+const { items } = require("../server/seedData");
 const request = require("supertest");
-const app = require("../app");
+const app = require("../server/app");
 
 //clear db and reseed before all tests
 beforeAll(async () => {
