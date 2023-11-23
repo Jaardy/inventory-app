@@ -28,42 +28,52 @@ export const ItemsList = ({ items, setActiveItem, setItem }) => {
   return (
     <>
       <input
+        id="search-bar"
         type="text"
         placeholder="Search by item name"
         onChange={handleChange}
         value={searchInput}
       />
-      {searchInput.length === 0
-        ? items.map((item, idx) => {
-            return (
+      {searchInput.length === 0 ? (
+        <div className="items-list-flex">
+          <div className="item-list">
+            {items.map((item, idx) => (
               <div
+                className="item"
                 key={idx}
                 onClick={() => {
                   handleClick(item);
                 }}
               >
-                <p>{item.name}</p>
-                <img className="image" src={item.image}></img>
-                <p>{item.price}</p>
-                <br></br>
+                <p>{item.name.slice(0, 20)}...</p>
+                <img className="image" src={item.image} alt={item.name} />
+                <p>£ {item.price}</p>
+                <br />
               </div>
-            );
-          })
-        : filteredResults.map((item, idx) => {
-            return (
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="items-list-flex">
+          <div className="item-list">
+            {filteredResults.map((item, idx) => (
               <div
+                className="item"
                 key={idx}
                 onClick={() => {
                   handleClick(item);
                 }}
               >
-                <p>{item.name}</p>
-                <img className="image" src={item.image}></img>
-                <p>{item.price}</p>
-                <br></br>
+                <p>{item.name.slice(0, 20)}</p>
+                <img className="image" src={item.image} alt={item.name} />
+                <p>£ {item.price}</p>
+                <br />
               </div>
-            );
-          })}
+            ))}
+          </div>
+        </div>
+      )}
+
       <button type="button" className="button" onClick={handleNewItem}>
         Add a new item
       </button>

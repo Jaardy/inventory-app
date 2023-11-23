@@ -15,7 +15,7 @@ export default function Item() {
     const response = await fetch(`${apiURL}/items/${id}`);
     const data = await response.json();
     setItem(data);
-    console.log(data)
+    console.log(data);
   }
 
   useEffect(() => {
@@ -33,21 +33,19 @@ export default function Item() {
     <>
       {!update ? (
         <>
-          <h1>{item.name}</h1>
-          <img className="image" src={item.image}></img>
-          <p>{item.description}</p>
-          <button
-            onClick={() => {
-              setUpdate(true);
-            }}
-          >
-            Update item
-          </button>
-          <button
-            onClick={deleteItem}
-          >
-            Delete item
-          </button>
+          <div className="main">
+            <h1>{item.name}</h1>
+            <img className="image" src={item.image}></img>
+            <p className="item-description">{item.description}</p>
+            <button
+              onClick={() => {
+                setUpdate(true);
+              }}
+            >
+              Update item
+            </button>
+            <button onClick={deleteItem}>Delete item</button>
+          </div>
         </>
       ) : (
         <UpdateForm item={item} />
