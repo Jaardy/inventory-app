@@ -34,7 +34,7 @@ export default function UpdateForm({ item }) {
 
   return (
     <>
-      <h2>Update your item</h2>
+      <h2 className="main">Update your item</h2>
       <form
         className="form"
         onSubmit={() => {

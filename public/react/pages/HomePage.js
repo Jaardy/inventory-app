@@ -29,16 +29,13 @@ export const Homepage = () => {
   }, []);
 
   return (
-    <main>
-      <img src={logo}></img>
-
+    <main className="main">
       {!isLoggedIn ? (
         <LoginPage setIsLoggedIn={setIsLoggedIn} />
       ) : (
         <>
           <button onClick={() => setIsLoggedIn(false)}>Log Out</button>
           <h1>Items</h1>
-          <h2>All things</h2>
           <ItemsList
             items={items}
             setActiveItem={setActiveItem}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import apiURL from "../api";
 
-export const LoginPage = ({setIsLoggedIn}) => {
+export const LoginPage = ({ setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [usernameError, setUsernameError] = useState("");
@@ -46,9 +46,9 @@ export const LoginPage = ({setIsLoggedIn}) => {
   return (
     <>
       <div className="login-main">
-        <h2>Login</h2>
         <form onSubmit={handleSubmit}>
-          <div className="inputContainer">
+          <h2>Welcome Back!</h2>
+          <div>
             <input
               className="input"
               value={username}
@@ -60,7 +60,7 @@ export const LoginPage = ({setIsLoggedIn}) => {
             <p className="errorLabel">{usernameError}</p>
           </div>
 
-          <div className="inputContainer">
+          <div>
             <input
               className="input"
               value={password}
@@ -71,7 +71,7 @@ export const LoginPage = ({setIsLoggedIn}) => {
             <p className="errorLabel">{passwordError}</p>
           </div>
 
-          <div className="inputContainer">
+          <div>
             <button className="inputButton" type="submit">
               Log In
             </button>
