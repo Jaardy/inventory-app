@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import apiURL from "../api";
 
-export const LoginPage = (props) => {
+export const LoginPage = ({setIsLoggedIn}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [user, setUser] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();

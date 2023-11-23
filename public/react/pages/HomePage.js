@@ -5,11 +5,13 @@ import logo from "../../images/logo.jpeg";
 
 // import and prepend the api url to any fetch calls
 import apiURL from "../api";
+import { LoginPage } from "../components/LoginPage";
 
 export const Homepage = () => {
   const [items, setItems] = useState([]);
   const [item, setItem] = useState({});
   const [activeItem, setActiveItem] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   async function fetchItems() {
     try {
@@ -29,14 +31,19 @@ export const Homepage = () => {
   return (
     <main>
       <img src={logo}></img>
-      <h1>Items</h1>
-      <h2>All things</h2>
-      {!activeItem ? (
-        <ItemsList
-          items={items}
-          setActiveItem={setActiveItem}
-          setItem={setItem}
-        />
+
+      {!isLoggedIn ? (
+        <LoginPage setIsLoggedIn={setIsLoggedIn} />
+      ) : !activeItem ? (
+        <>
+          <h1>Items</h1>
+          <h2>All things</h2>
+          <ItemsList
+            items={items}
+            setActiveItem={setActiveItem}
+            setItem={setItem}
+          />
+        </>
       ) : (
         <Page item={item} />
       )}
