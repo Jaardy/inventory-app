@@ -5,6 +5,7 @@ import { AddNewItem } from "./pages/AddItem";
 import Item from "./pages/Item";
 import MainPage from "./pages/MainPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Search } from "./components/Search";
 
 export default router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ export default router = createBrowserRouter([
       { index: true, element: <Homepage /> },
       { path: "add-item", element: <AddNewItem /> },
       { path: ":id", element: <Item /> },
+      { path: "search", element: <Search /> },
     ],
   },
 ]);
