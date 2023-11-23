@@ -19,8 +19,10 @@ export const ItemsList = ({ items, setActiveItem, setItem }) => {
   }
 
   const handleChange = (e) => {
-    const results = items.filter((item) =>
-      item.name.toLowerCase().includes(e.target.value.toLowerCase())
+    const results = items.filter(
+      (item) =>
+        item.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
+        item.category.toLowerCase().includes(e.target.value.toLowerCase())
     );
     console.log(results);
     setFilteredResults(results);
