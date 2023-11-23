@@ -8,7 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 export default router = createBrowserRouter([
   {
-    path: "/items",
+    path: "/",
     element: <MainPage />,
     children: [
       { index: true, element: <Homepage /> },
