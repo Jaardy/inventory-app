@@ -11,7 +11,7 @@ export const Homepage = () => {
   const [items, setItems] = useState([]);
   const [item, setItem] = useState({});
   const [activeItem, setActiveItem] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   async function fetchItems() {
     try {
@@ -30,19 +30,15 @@ export const Homepage = () => {
 
   return (
     <main className="main">
-      {!isLoggedIn ? (
-        <LoginPage setIsLoggedIn={setIsLoggedIn} />
-      ) : (
-        <>
-          <button onClick={() => setIsLoggedIn(false)}>Log Out</button>
-          <h1>Items</h1>
-          <ItemsList
-            items={items}
-            setActiveItem={setActiveItem}
-            setItem={setItem}
-          />
-        </>
-      )}
+      <>
+        <button onClick={() => setIsLoggedIn(false)}>Log Out</button>
+        <h1>Items</h1>
+        <ItemsList
+          items={items}
+          setActiveItem={setActiveItem}
+          setItem={setItem}
+        />
+      </>
     </main>
   );
 };

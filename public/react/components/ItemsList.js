@@ -6,6 +6,8 @@ export const ItemsList = ({ items, setActiveItem, setItem }) => {
   const navigate = useNavigate();
   const [filteredResults, setFilteredResults] = useState(items);
   const [searchInput, setSearchInput] = useState("");
+  const [cartItem, setCartItem] = useState([]);
+
   function handleClick(item) {
     setActiveItem(true);
     setItem(item);

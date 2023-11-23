@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import apiURL from "../api";
+import { useNavigate } from "react-router";
 
-export const LoginPage = ({ setIsLoggedIn }) => {
+export const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [user, setUser] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const nav = useNavigate();
   async function handleSubmit(e) {
     e.preventDefault();
     try {
@@ -30,8 +33,7 @@ export const LoginPage = ({ setIsLoggedIn }) => {
           setPassword("");
           setPasswordError("");
           setUsernameError("");
-          setIsLoggedIn(true); //use this for conditional rendering
-          console.log(`${user.username} logged in`);
+          nav("home");
         } else {
           setPasswordError("Incorrect Password");
         }
@@ -42,6 +44,11 @@ export const LoginPage = ({ setIsLoggedIn }) => {
       console.log("error");
     }
   }
+
+  const handleClick = () => {
+    if (isLoggedIn) {
+    }
+  };
 
   return (
     <>

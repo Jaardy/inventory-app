@@ -5,17 +5,18 @@ import { AddNewItem } from "./pages/AddItem";
 import Item from "./pages/Item";
 import MainPage from "./pages/MainPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Search } from "./components/Search";
+import { Login } from "./pages/Login";
+import { LoginPage } from "./components/LoginPage";
 
 export default createBrowserRouter([
   {
     path: "/",
     element: <MainPage />,
     children: [
-      { index: true, element: <Homepage /> },
+      { index: true, element: <LoginPage /> },
+      { path: "home", element: <Homepage /> },
       { path: "add-item", element: <AddNewItem /> },
       { path: ":id", element: <Item /> },
-      { path: "search", element: <Search /> },
     ],
   },
 ]);
