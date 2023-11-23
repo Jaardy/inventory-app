@@ -1,3 +1,4 @@
+
 // load environment variables from .env or elsewhere
 require("dotenv").config();
 const express = require("express");
@@ -20,18 +21,13 @@ app.use("/", express.static(path.join(__dirname, "../dist")));
 // api router
 app.use("/api", require("./routes"));
 
-
 // 404 handler
 app.use((req, res) => {
-  console.log(req.path)
-  res
-    .status(404)
-    .send({
-      error: "404 - Not Found",
-      message: "No route found for the requested URL",
-    });
+  res.status(404).send({
+    error: "404 - Not Found",
+    message: "No route found for the requested URL",
+  });
 });
-
 
 // error handling middleware
 app.use((error, req, res, next) => {

@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 export const Item = ({ item, setIsSinglePage, setSinglePageData }) => {
   const navigate = useNavigate();
   const { id } = useParams();
-  console.log(id);
 
   async function getPage(item) {
     const response = await fetch(`${apiURL}/items/${item.id}`);

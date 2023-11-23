@@ -41,7 +41,7 @@ export const LoginPage = () => {
         setUsernameError("Invalid username");
       }
     } catch (error) {
-      console.log("error");
+      // console.log("error");
     }
   }
 

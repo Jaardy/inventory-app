@@ -24,7 +24,6 @@ export const ItemsList = ({ items, setActiveItem, setItem }) => {
         item.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
         item.category.toLowerCase().includes(e.target.value.toLowerCase())
     );
-    console.log(results);
     setFilteredResults(results);
     setSearchInput(e.target.value);
   };
