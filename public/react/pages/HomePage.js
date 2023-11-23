@@ -34,8 +34,9 @@ export const Homepage = () => {
 
       {!isLoggedIn ? (
         <LoginPage setIsLoggedIn={setIsLoggedIn} />
-      ) : !activeItem ? (
+      ) : (
         <>
+          <button onClick={() => setIsLoggedIn(false)}>Log Out</button>
           <h1>Items</h1>
           <h2>All things</h2>
           <ItemsList
@@ -44,8 +45,6 @@ export const Homepage = () => {
             setItem={setItem}
           />
         </>
-      ) : (
-        <Page item={item} />
       )}
     </main>
   );
